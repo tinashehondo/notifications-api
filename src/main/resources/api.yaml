@@ -1,0 +1,42 @@
+openapi: "3.0.0"
+info:
+  description: "Skeleton Service for creating models and API interface for rest ws to give to clients"
+  version: "0.0.1"
+  title: "Model Service Skeleton API"
+  contact:
+    email: "tinashehondo@gmail.com"
+tags:
+  - name: "notifications"
+    description: "notifications Service model api"
+servers:
+  - url: http://localhost:18001/
+    description: "localhost"
+
+paths:
+
+  /notification/smses:
+    get:
+      description: retrieve sms notifications
+      operationId: getSmsNotifications
+      tags:
+       - smsNotificationService
+      responses:
+        '200':
+          description: Successfully returned a list of sms notifications
+          content:
+            application/json:
+              schema:
+                $ref: ./sms-response.yml#/SmsResponse
+        400:
+          description: HTTP 400 Failed to get sms
+        401:
+          description: Unauthorized - The request requires user authentication
+        403:
+          description: Forbidden - The server understood the request, but is refusing it or
+            the access is not allowed.
+        404:
+          description: Resource not found
+        500:
+          description: HTTP 500 Error Response
+
+
