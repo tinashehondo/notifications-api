@@ -1,2 +1,2 @@
-# email notification service
+# notification service
 
